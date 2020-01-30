@@ -2,7 +2,7 @@
 
 namespace App\Examples;
 
-use App\Field\{Text,Email};
+use App\Field\{Text, Email, Textarea};
 use App\Form;
 
 /**
@@ -20,12 +20,9 @@ class ContactForm extends Form
     {
         parent::__construct('Contact Form', [
             new Text('first_name'),
-
-            (new Text('last_name'))
-                ->setRequired(false)
-                ->setValue('example@evosite.co.uk/p""'),
-
+            new Text('last_name'),
             new Email('email_address'),
+            new Textarea('enquiry'),
         ]);
     }
 }
