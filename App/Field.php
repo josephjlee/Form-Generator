@@ -18,6 +18,8 @@ abstract class Field implements FieldInterface
 
     protected string $label;
 
+    protected array $attributes = [];
+
     protected string $requiredLabelIndicator = '*';
 
     protected bool $required = true;
@@ -40,6 +42,14 @@ abstract class Field implements FieldInterface
         $this->name = $name;
 
         $this->setLabelFromName();
+    }
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->getForm()->name . '__' . $this->getName();
     }
 
     /**
@@ -228,6 +238,52 @@ abstract class Field implements FieldInterface
         $label = ucfirst(str_replace(['_', '-', '.'], ' ', trim($this->getName(), ' .-_')));
 
         $this->setLabel($label);
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAttributes(): array
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttributesHtml(): string
+    {
+        $attributes = [];
+        foreach ($this->attributes as $attribute => $value) {
+            $attributes[] = $attribute . '="' . htmlspecialchars($value) . '"';
+        }
+
+        return ' ' . implode(' ', $attributes);
+    }
+
+    /**
+     * @param string $attribute
+     * @param string $value
+     *
+     * @return Field
+     */
+    public function setAttribute(string $attribute, string $value): self
+    {
+        $this->attributes[$attribute] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return Field
+     */
+    public function setAttributes(array $attributes): self
+    {
+        $this->attributes = array_merge($this->attributes, $attributes);
 
         return $this;
     }
