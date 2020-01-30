@@ -121,14 +121,6 @@ abstract class Field implements FieldInterface
     }
 
     /**
-     * @return string
-     */
-    public function getRawValue(): string
-    {
-        return $this->value;
-    }
-
-    /**
      * @param string $value
      *
      * @return self
