@@ -4,9 +4,17 @@ namespace App\Field;
 
 use App\Field;
 
+/**
+ * Class Textarea
+ *
+ * @package App\Field
+ */
 class Textarea extends Field
 {
 
+    /**
+     * @return string
+     */
     public function getHtml(): string
     {
         $name = $this->getName();
@@ -22,6 +30,9 @@ class Textarea extends Field
 HTML;
     }
 
+    /**
+     * @return bool
+     */
     public function isValid(): bool
     {
         // No additional validation required
