@@ -23,7 +23,7 @@ class Text extends Field
     public function getHtml(): string
     {
         return '<label for="' . $this->getId() . '">' . $this->getLabel() . '</label>
-<input type="' . $this->getType() . '" id="' . $this->getId() . '" name="' . $this->getName() . '" value="' . $this->getSanitisedValue() . '"' . ($this->getRequired() ? ' required' : '' ) . $this->getAttributesHtml() . '/>';
+<input type="' . $this->getType() . '" id="' . $this->getId() . '" name="' . $this->getName() . '" value="' . (!$this->sensitiveContents ? $this->getSanitisedValue() : '') . '"' . ($this->getRequired() ? ' required' : '' ) . $this->getAttributesHtml() . '/>';
     }
 
     /**

@@ -30,6 +30,8 @@ abstract class Field implements FieldInterface
 
     protected string $validationError;
 
+    protected bool $sensitiveContents = false;
+
     protected Form $form;
 
     /**
