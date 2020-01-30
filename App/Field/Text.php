@@ -22,18 +22,8 @@ class Text extends Field
      */
     public function getHtml(): string
     {
-        $name = $this->getName();
-        $id = $this->getForm()->name . '__' . $name;
-        $label = $this->getLabel() . ($this->getRequired() ? ' ' . $this->requiredLabelIndicator : '');
-        $type = $this->getType();
-        $value = $this->getSanitisedValue();
-
-        $required = ($this->getRequired() ? ' required' : '');
-
-        return <<<HTML
-<label for="$id">$label</label>
-<input type="$type" id="$id" name="$name" value="$value" $required/>
-HTML;
+        return '<label for="' . $this->getId() . '">' . $this->getLabel() . '</label>
+<input type="' . $this->getType() . '" id="' . $this->getId() . '" name="' . $this->getName() . '" value="' . $this->getSanitisedValue() . '"' . ($this->getRequired() ? ' required' : '' ) . $this->getAttributesHtml() . '/>';
     }
 
     /**
