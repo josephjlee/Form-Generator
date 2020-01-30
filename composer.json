@@ -1,0 +1,20 @@
+{
+  "name": "aran112000/Form-Generator",
+  "description": "An easy to use PHP powered library for generating HTML forms and handling their submissions (including validation)",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aran Reeks",
+      "email": "cdtreeks@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "7.4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "App/"
+    }
+  }
+}
