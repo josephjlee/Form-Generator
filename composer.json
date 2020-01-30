@@ -1,5 +1,5 @@
 {
-  "name": "aran112000/Form-Generator",
+  "name": "aran112000/form-generator",
   "description": "An easy to use PHP powered library for generating HTML forms and handling their submissions (including validation)",
   "minimum-stability": "stable",
   "license": "MIT",
@@ -20,5 +20,8 @@
     "psr-4": {
       "App\\": "App/"
     }
+  },
+  "scripts": {
+    "phpcs": "vendor\\bin\\phpcs"
   }
 }
